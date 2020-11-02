@@ -1,0 +1,107 @@
+<!doctype html>
+
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/rev.css') }}">
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/status.css') }}">
+<meta http-equiv="refresh" content="10" >
+
+<div class="links"><a class="acltive" href="dev">Dev</a> <a href="stage">Stage</a> <a href="production">Prod</a></div>
+<table class="blueTable">
+
+<tr><strong>Service 01</strong></tr>
+<thead>
+<tr>
+<th>Host Name</th>
+<th>Version</th>
+<th>Test Mode</th>
+<th>Environment</th>
+<th>Service Status</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td colspan="6">
+</td>
+</tr>
+</tfoot>
+<tbody>
+{% for row in rows %}
+{% set hostname = row["hostname"] %}
+{% if hostname[:3] == 'lx-' %}
+<tr>
+<td>{{row["hostname"]}}</td>
+<td>{{row["version"]}}</td>
+<td>{{row["test_mode"]}}</td>
+<td>{{row["environment"]}}</td>
+<td><span class="dot dot-{{row["service_status"]}}"><span class="dot-inner"></span></span></td>
+</tr>
+{% endif  %}
+{% endfor %}
+</tbody>
+</table>
+<table class="greenTable">
+<thead>
+<tr>
+<th>Host Name</th>
+<th>Version</th>
+<th>Test Mode</th>
+<th>Environment</th>
+<th>Service Status</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td colspan="6">
+</td>
+</tr>
+</tfoot>
+
+<tr><strong>Service 02</strong></tr>
+<tbody>
+{% for row in rows %}
+{% set hostname = row["hostname"] %}
+{% if hostname[:3] == 'cr-' %}
+<tr>
+<td>{{row["hostname"]}}</td>
+<td>{{row["version"]}}</td>
+<td>{{row["test_mode"]}}</td>
+<td>{{row["environment"]}}</td>
+<td><span class="dot dot-{{row["service_status"]}}"><span class="dot-inner"></span></span></td>
+</tr>
+{% endif  %}
+{% endfor %}
+</tbody>
+</table>
+<table class="grayTable">
+<thead>
+<tr>
+<th>Host Name</th>
+<th>Version</th>
+<th>Test Mode</th>
+<th>Environment</th>
+<th>Service Status</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td colspan="6">
+<!-- <div class="links"><a href="#">&laquo;</a> <a class="active" href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">&raquo;</a></div> -->
+</td>
+</tr>
+</tfoot>
+
+<tr><strong>Service 03</strong></tr>
+<tbody>
+{% for row in rows %}
+{% set hostname = row["hostname"] %}
+{% if hostname[:3] == 'pgx' %}
+<tr>
+<td>{{row["hostname"]}}</td>
+<td>{{row["version"]}}</td>
+<td>{{row["test_mode"]}}</td>
+<td>{{row["environment"]}}</td>
+<td><span class="dot dot-{{row["service_status"]}}"><span class="dot-inner"></span></span></td>
+</tr>
+{% endif  %}
+{% endfor %}
+</tbody>
+</table>

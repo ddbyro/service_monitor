@@ -1,13 +1,13 @@
-from flask import Flask, render_template, request, redirect
-import sqlite3 as sql
-import requests
-from requests.packages.urllib3.exceptions import InsecureRequestWarning
-app = Flask(__name__)
-requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+# from flask import Flask, render_template, request, redirect
+# import sqlite3 as sql
+# import requests
+# from requests.packages.urllib3.exceptions import InsecureRequestWarning
+# app = Flask(__name__)
+# requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 import yaml
 
 with open(r'./db.yaml') as file:
-    services = yaml.load(file, Loader=yaml.FullLoader)
+    services = yaml.load(file)
     print(services)
 
 #connection information to database, and Rev

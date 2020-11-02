@@ -1,3 +1,37 @@
-prod_services:
-  'one'
-  'two'
+prod_servers:
+-   environment: Prod
+    hostname: cr-revsvcs-a03.c01.vwsl.pgx.local
+-   environment: Prod
+    hostname: cr-revsvcs-a04.c01.vwsl.pgx.local
+-   environment: Prod
+    hostname: cr-revsvcs-a05.c01.vwsl.pgx.local
+-   environment: Prod
+    hostname: cr-revsvcs-a06.c01.vwsl.pgx.local
+-   environment: Prod
+    hostname: cr-revsvcs-a07.c01.vwsl.pgx.local
+-   environment: Prod
+    hostname: cr-revsvcs-a08.c01.vwsl.pgx.local
+-   environment: Prod
+    hostname: cr-revsvcs-a09.c01.vwsl.pgx.local
+-   environment: Prod
+    hostname: cr-revsvcs-a10.c01.vwsl.pgx.local
+-   environment: Prod
+    hostname: cr-irevsvcs-a03.c01.vwsl.pgx.local
+-   environment: Prod
+    hostname: cr-irevsvcs-a04.c01.vwsl.pgx.local
+-   environment: Prod
+    hostname: cr-irevsvcs-a05.c01.vwsl.pgx.local
+-   environment: Prod
+    hostname: cr-irevsvcs-a06.c01.vwsl.pgx.local
+-   environment: Prod
+    hostname: cr-irevsvcs-a07.c01.vwsl.pgx.local
+-   environment: Prod
+    hostname: cr-irevsvcs-a08.c01.vwsl.pgx.local
+-   environment: Prod
+    hostname: cr-irevsvcs-a09.c01.vwsl.pgx.local
+-   environment: Prod
+    hostname: cr-irevsvcs-a10.c01.vwsl.pgx.local
+-   environment: Prod
+    hostname: lx-rev-cron-a03.c01.vwsl.pgx.local
+-   environment: Prod
+    hostname: lx-rev-cron-a04.c01.vwsl.pgx.local

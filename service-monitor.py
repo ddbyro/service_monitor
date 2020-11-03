@@ -43,7 +43,7 @@ def home():
 
 @app.route('/service01')
 def rev():
-    return rservice_mon('prod')
+    return service_mon('prod')
 
 
 # @app.route('/rev_dev')

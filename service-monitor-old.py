@@ -26,7 +26,6 @@ def rev_mon(env):
 
    for hostname in config['services']:
        test_mode = "Status: {0}".format('false')
-       status_color = ''
            
        try:
            service_isalive = requests.get('{0}'.format(hostname['hostname']), timeout=5)
@@ -41,17 +40,17 @@ def rev_mon(env):
            #status_color = service_isalive
        print '{0}_servers, {1}, {2}, {3}, {4}'.format(hostname['environment'], hostname['version'], status_color, test_mode, hostname['hostname']) #prints off information populated that will be used in the database update
 
-   #return render_template('rev.html',rows = rows)
+   return render_template('service01.html',hostnames = hostnames, status_color = status_color)
    #return rows
 
-print(rev_mon('prod'))
-"""
+#print(rev_mon('prod'))
+
 @app.route('/')
 def home():
     return render_template('index.html')
 
 
-@app.route('/rev')
+@app.route('/service01')
 def rev():
     return rev_mon('prod')
 
@@ -77,4 +76,3 @@ def rev_stage():
 
 if __name__ == '__main__':
    app.run(host='0.0.0.0', port=5002, debug = True)
-"""

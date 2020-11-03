@@ -31,7 +31,8 @@
 <td>{{host["version"]}}</td>
 <td>{{host["test_mode"]}}</td>
 <td>{{host["environment"]}}</td>
-<td><span class="dot dot-{{row["service_status"]}}"><span class="dot-inner"></span></span></td>
+<td>{{status_color}}</td>
+<td><span class="dot dot-{{host["service_status"]}}"><span class="dot-inner"></span></span></td>
 </tr>
 {% endfor %}
 </tbody>

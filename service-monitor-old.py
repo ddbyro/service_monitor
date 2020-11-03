@@ -33,6 +33,7 @@ def rev_mon(env):
            service_isalive = requests.get('{0}'.format(hostname), timeout=5)
            if service_isalive.text == 'true':
                status_color = 'green'
+               print(service_isalive.text)
            else:
                status_color = 'red'
        except:

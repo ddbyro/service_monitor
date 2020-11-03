@@ -24,8 +24,8 @@ def service_mon(env):
 
        try:
            # this is for the isAlive check column for all three brands
-           rev_isalive = requests.get('http://{0}:8080/{1}/resources/systemUtils/isAlive'.format(hostname,web_service), timeout=5)
-           if rev_isalive.text == 'true':
+           service_isalive = requests.get('{0}'.format(hostname['hostname']), timeout=5)
+           if service_isalive.text == 'true':
                status_color = 'green'
            else:
                status_color = 'red'
@@ -43,7 +43,7 @@ def home():
 
 @app.route('/service01')
 def rev():
-    return service_mon('prod')
+    return rservice_mon('prod')
 
 
 # @app.route('/rev_dev')

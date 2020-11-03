@@ -9,7 +9,7 @@ config = yaml.full_load(open('./config.yaml'))
 hostnames = config['services']
 
 #connection information to database, and Rev
-def rev_mon(env):
+def service_mon(env):
    table = '{0}_servers'.format(env)
    hostnames= []
    #rows = len(hostname)
@@ -41,9 +41,9 @@ def home():
     return render_template('index.html')
 
 
-@app.route('/rev')
+@app.route('/service01')
 def rev():
-    return rev_mon('prod')
+    return service_mon('prod')
 
 
 # @app.route('/rev_dev')

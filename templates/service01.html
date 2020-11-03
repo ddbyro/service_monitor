@@ -27,10 +27,10 @@
 {% for host in hostnames %}
 {% set hostname = host["hostname"] %}
 <tr>
-<td>{{row["hostname"]}}</td>
-<td>{{row["version"]}}</td>
-<td>{{row["test_mode"]}}</td>
-<td>{{row["environment"]}}</td>
+<td>{{host["hostname"]}}</td>
+<td>{{host["version"]}}</td>
+<td>{{host["test_mode"]}}</td>
+<td>{{host["environment"]}}</td>
 <td><span class="dot dot-{{row["service_status"]}}"><span class="dot-inner"></span></span></td>
 </tr>
 {% endfor %}

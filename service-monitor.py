@@ -12,7 +12,7 @@ def service_mon(env):
    hostnames = []
 
    #generate list of hostnames
-   for hostname in config['hostname']:
+   for hostname in config['services']:
        if hostname['environment'] == "prod":
            hostnames.append(hostname['hostname'])
 

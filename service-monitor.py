@@ -5,7 +5,7 @@ app = Flask(__name__)
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 import yaml
 
-:qconfig = yaml.full_load(open('./config.yaml'))
+config = yaml.full_load(open('./config.yaml'))
 hostnames = config['hostnames']['hostnames']
 
 #connection information to database, and Rev

@@ -18,13 +18,10 @@ def rev_mon(env):
 
 
    #generate list of hostnames
-   for row in rows:
-       hostnames.append(row[0])
-
-
    for hostname in hostnames:
-       if hostname['environment'] == "prod":
-           hostnames.append(hostname['hostname'])
+       if hostname['hostname'] == 'prod':
+           hostname['hostname'].append(hostname[0])
+
 
    print(hostnames)
 

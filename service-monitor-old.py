@@ -10,6 +10,9 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 config = yaml.full_load(open('./config.yaml'))
 hostnames = config['services']
 
+# for hostname in hostnames:
+#     if hostname['environment']
+
 #connection information to database, and Rev
 def rev_mon(env):
    #table = '{0}_servers'.format(env)
@@ -20,7 +23,7 @@ def rev_mon(env):
 
    #generate list of hostnames
    for hostname in hostnames:
-       if hostname['hostname'] == 'prod':
+       if hostname['environment'] == 'prod':
            hostname['hostname'].append(urls[0])
 
 

@@ -26,4 +26,4 @@ def rev_mon(env):
 
    print(hostnames)
 
-rev_mon(prod)
+rev_mon('prod')

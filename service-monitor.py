@@ -6,7 +6,7 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 import yaml
 
 config = yaml.full_load(open('./config.yaml'))
-hostnames = config['hostnames']['hostname']
+hostnames = config['services']
 
 #connection information to database, and Rev
 def rev_mon(env):

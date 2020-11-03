@@ -1,0 +1,7 @@
+services:
+  - environment: 'prod'
+    hostname: 'https://google.com'
+    version: '1.0'
+  - environment: 'prod'
+    hostname: 'https://hass.dbyron.space:8123/lovelace/main'
+    version: '1.0'

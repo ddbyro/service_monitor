@@ -16,6 +16,7 @@ for hostname in hostnames:
     if hostname['environment'] == "prod":
         urls.append(hostname['hostname'])
 
+print(urls)
 #connection information to database, and Rev
 # def rev_mon(env):
 #    #table = '{0}_servers'.format(env)

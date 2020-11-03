@@ -21,7 +21,7 @@ def rev_mon(env):
    #generate list of hostnames
    for hostname in hostnames:
        if hostname['hostname'] == 'prod':
-           hostname['hostname'].append(hostname[0])
+           hostname['hostname'].append(hostnames[0])
 
 
    print(hostnames)

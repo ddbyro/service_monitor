@@ -42,7 +42,7 @@ def rev_mon(env):
                web_service = 'RevWebServices'
            elif hostname[:3] == 'pgx':
                web_service = 'ProgrexionServicesWeb'
-           testmode = requests.get('http://{0}:8080/{1}/resources/systemUtils/isTestMode'.format(hostname,web_service), timeout=5)
+           testmode = requests.get('{0}'.format(hostname), timeout=5)
            #get version information from above check
            if testmode.status_code == requests.codes.ok:
                test_mode = testmode.text

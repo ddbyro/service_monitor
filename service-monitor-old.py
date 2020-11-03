@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect
 import sqlite3 as sql
 import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
+import yaml
 app = Flask(__name__)
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 

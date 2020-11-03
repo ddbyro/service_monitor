@@ -26,20 +26,20 @@ def rev_mon(env):
 
    for hostname in config['services']:
        test_mode = "Status: {0}".format('false')
-
-
+       status_color = ''
+           
        try:
-           # this is for the isAlive check column for all three brands
-           service_isalive = requests.get('{0}'.format(hostname), timeout=5)
+           service_isalive = requests.get('{0}'.format(hostname['hostname']), timeout=5)
+
            if service_isalive.status_code == requests.codes.ok:
                status_color = 'green'
-               print(requests.codes.ok)
            else:
-               status_color = service_isalive
-       except:
-           status_color = service_isalive
-       print '{0}_servers, {1}, {2}, {3}, {4}'.format(hostname['environment'], hostname['version'], status_color, test_mode, hostname['hostname']) #prints off information populated that will be used in the database update
+               status_color = 'red'
 
+       except:
+           status_color = 'red'
+           #status_color = service_isalive
+       print '{0}_servers, {1}, {2}, {3}, {4}'.format(hostname['environment'], hostname['version'], status_color, test_mode, hostname['hostname']) #prints off information populated that will be used in the database update
 
    #return render_template('rev.html',rows = rows)
    #return rows

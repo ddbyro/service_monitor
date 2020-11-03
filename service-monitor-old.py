@@ -13,7 +13,7 @@ hostnames = config['services']
 #connection information to database, and Rev
 def rev_mon(env):
    #table = '{0}_servers'.format(env)
-   hostnames = []
+   urls = []
    #conn = sql.connect("database.db")
    #rows = conn.execute("select hostname from {0}".format(table))
 
@@ -21,9 +21,9 @@ def rev_mon(env):
    #generate list of hostnames
    for hostname in hostnames:
        if hostname['hostname'] == 'prod':
-           hostname['hostname'].append(hostnames[0])
+           hostname['hostname'].append(urls[0])
 
 
-   print(hostnames)
+   print(urls)
 
 rev_mon('prod')

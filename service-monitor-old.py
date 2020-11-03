@@ -12,7 +12,7 @@ hostnames = config['services']
 
 #connection information to database, and Rev
 def rev_mon(env):
-   table = '{0}_servers'.format(env)
+   #table = '{0}_servers'.format(env)
    hostnames = []
    #conn = sql.connect("database.db")
    #rows = conn.execute("select hostname from {0}".format(table))

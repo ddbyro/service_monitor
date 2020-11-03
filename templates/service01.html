@@ -24,7 +24,7 @@
 </tr>
 </tfoot>
 <tbody>
-{% for host in hostnames %}
+{% for host in server_info['hostnames'] %}
 {% set hostname = host %}
 <tr>
 <td>{{host["hostname"]}}</td>

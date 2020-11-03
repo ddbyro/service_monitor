@@ -33,11 +33,11 @@ def rev_mon(env):
            service_isalive = requests.get('{0}'.format(hostname), timeout=5)
            if service_isalive.text == 'true':
                status_color = 'green'
-               print(service_isalive.text)
+               print(service_isalive)
            else:
-               status_color = service_isalive.text
+               status_color = service_isalive
        except:
-           status_color = service_isalive.text
+           status_color = service_isalive
        print '{0}_servers, {1}, {2}, {3}, {4}'.format(hostname['environment'], hostname['version'], status_color, test_mode, hostname['hostname']) #prints off information populated that will be used in the database update
 
 

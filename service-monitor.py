@@ -27,7 +27,7 @@ def service_mon(env):
            status_color = 'red'
 
 
-   return render_template('service01.html',rows = table)
+   return render_template('service01.html',rows = hostnames)
 
 
 @app.route('/')

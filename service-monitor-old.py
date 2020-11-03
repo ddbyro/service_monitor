@@ -10,23 +10,24 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 config = yaml.full_load(open('./config.yaml'))
 hostnames = config['services']
 
-# for hostname in hostnames:
-#     if hostname['environment']
+for hostname in hostnames:
+    if hostname['environment'] == 'prod':
+        print(hostname['hostname'])
 
 #connection information to database, and Rev
-def rev_mon(env):
-   #table = '{0}_servers'.format(env)
-   urls = []
-   #conn = sql.connect("database.db")
-   #rows = conn.execute("select hostname from {0}".format(table))
+# def rev_mon(env):
+#    #table = '{0}_servers'.format(env)
+#    urls = []
+#    #conn = sql.connect("database.db")
+#    #rows = conn.execute("select hostname from {0}".format(table))
 
 
-   #generate list of hostnames
-   for hostname in hostnames:
-       if hostname['environment'] == 'prod':
-           hostname['hostname'].append(urls[0])
+#    #generate list of hostnames
+#    for hostname in hostnames:
+#        if hostname['environment'] == 'prod':
+#            hostname['hostname'].append(urls[0])
 
 
-   print(urls)
+#    print(urls)
 
-rev_mon('prod')
+# rev_mon('prod')

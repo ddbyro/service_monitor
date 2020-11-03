@@ -33,7 +33,7 @@ def rev_mon(env):
            status_color = 'red'
 
 
-   return render_template('rev.html',rows = table)
+   return render_template('rev.html')#,rows = table)
 
 
 @app.route('/')

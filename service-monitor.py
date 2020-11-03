@@ -11,7 +11,7 @@ hostnames = config['services']
 #connection information to database, and Rev
 def service_mon(env):
    table = '{0}_servers'.format(env)
-   hostnames= []
+   hostnames = []
    #rows = len(hostname)
 #    conn = sql.connect("database.db")
 #    rows = conn.execute("select hostname from {0}".format(table))
@@ -33,7 +33,7 @@ def service_mon(env):
            status_color = 'red'
 
 
-   return render_template('service01.html')#,rows = table)
+   return render_template('service01.html',rows = table)
 
 
 @app.route('/')

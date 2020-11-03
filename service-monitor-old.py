@@ -31,9 +31,9 @@ def rev_mon(env):
        try:
            # this is for the isAlive check column for all three brands
            service_isalive = requests.get('{0}'.format(hostname), timeout=5)
-           if service_isalive.text == 'true':
+           if service_isalive.status_code == requests.codes.ok:
                status_color = 'green'
-               print(service_isalive)
+               print(requests.codes.ok)
            else:
                status_color = service_isalive
        except:

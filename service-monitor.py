@@ -10,7 +10,7 @@ config = yaml.full_load(open('./config.yaml'))
 #connection information to database, and Rev
 def service_mon(env):
    hostnames = []
-
+   host_info = [('{0}, {1}, {2}, {3}, {4}'.format(hostnames, version, status_color, test_mode, hostname))]
    #generate list of hostnames
    for hostname in config['services']:
        if hostname['environment'] == "prod":

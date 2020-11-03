@@ -25,37 +25,13 @@ def rev_mon(env):
 
 
    for hostname in config['services']:
-       try:
-           service_version = requests.get('{0}'.format(hostname), timeout=5)
-           #get version information from above check
-           if service_version.status_code == requests.codes.ok:
-               version = service_version.text
-           else:
-               version = "Status: {0}".format(service_version.status_code)
-       except:
-           version = "Check Failed (Wildfly might be down)"
-
-
-       try:
-           #same thing as above but for the testMode column for all three brands
-           if (hostname[:3] == 'lx-') or (hostname[:3] == 'cr-'):
-               web_service = 'RevWebServices'
-           elif hostname[:3] == 'pgx':
-               web_service = 'ProgrexionServicesWeb'
-           testmode = requests.get('{0}'.format(hostname), timeout=5)
-           #get version information from above check
-           if testmode.status_code == requests.codes.ok:
-               test_mode = testmode.text
-           else:
-               test_mode = "Status: {0}".format(testmode.status_code)
-       except:
-           test_mode = "Server Mode Check - Failed"
+       test_mode = "Status: {0}".format('false')
 
 
        try:
            # this is for the isAlive check column for all three brands
-           rev_isalive = requests.get('{0}'.format(hostname), timeout=5)
-           if rev_isalive.text == 'true':
+           service_isalive = requests.get('{0}'.format(hostname), timeout=5)
+           if service_isalive.text == 'true':
                status_color = 'green'
            else:
                status_color = 'red'

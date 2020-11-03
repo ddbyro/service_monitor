@@ -10,8 +10,10 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 config = yaml.full_load(open('./config.yaml'))
 hostnames = config['services']
 
+urls = []
+
 for hostname in hostnames:
-    if hostname['environment'] == 'prod':
+    if hostname['environment'] == "prod":
         print(hostname['hostname'])
 
 #connection information to database, and Rev

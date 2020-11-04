@@ -3,4 +3,4 @@ RUN mkdir -p /opt/monitor
 WORKDIR /opt/code
 ADD . /opt/code
 RUN pip install -r requirements.txt
-CMD ["python", "app.py"]
+CMD ["python", "service_monitor.py"]

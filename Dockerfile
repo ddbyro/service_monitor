@@ -3,5 +3,5 @@ WORKDIR /usr/src/app
 COPY . /usr/src/app
 EXPOSE 5002
 RUN python -m pip install pyyaml flask requests
-CMD ["./service_monitor.py"]
+CMD ["python", "service_monitor.py"]
 #CMD ["watch", "whoami"]

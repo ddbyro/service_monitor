@@ -1,0 +1,13 @@
+services:
+  - name: Google
+    environment: 'prod'
+    hostname: 'https://google.com'
+    version: '1.0'
+  - name: Home-Assistant
+    environment: 'prod'
+    hostname: 'https://hass.dbyron.space:8123/lovelace/main'
+    version: '1.0'
+  - name: Tautulli
+    environment: 'prod'
+    hostname: http://192.168.0.55:8181/home
+    version: '1.0'

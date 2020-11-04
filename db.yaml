@@ -1,5 +1,0 @@
-servers:
-  - server01:
-      'one-one'
-  - server02:
-      'two-one'

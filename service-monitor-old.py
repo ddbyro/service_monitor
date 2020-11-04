@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from flask import Flask, render_template, request, redirect
+import sqlite3 as sql
 import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 import yaml
@@ -9,6 +10,8 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 config = yaml.full_load(open('./config.yaml'))
 hostnames = config['services']
 
+
+#connection information to database, and Rev
 def service_mon(env):
    service_info = []
 
@@ -19,13 +22,13 @@ def service_mon(env):
 
            if service_isalive.status_code == requests.codes.ok:
                status_color = 'green'
-               service_info.append({'name':hostname['name'],'hostname':hostname['hostname'],'environment':hostname['environment'],'version':hostname['version'],'status_color': status_color})
+               service_info.append({'hostname':hostname['hostname'],'environment':hostname['environment'],'version':hostname['version'],'status_color': status_color})
            else:
                status_color = 'red'
-               service_info.append({'name':hostname['name'],'hostname':hostname['hostname'],'environment':hostname['environment'],'version':hostname['version'],'status_color': status_color})
+               service_info.append({'hostname':hostname['hostname'],'environment':hostname['environment'],'version':hostname['version'],'status_color': status_color})
        except:
            status_color = 'red'
-           service_info.update({'name':hostname['name'],'hostname':hostname['hostname'],'environment':hostname['environment'],'version':hostname['version'],'status_color': status_color})
+           service_info.update({'hostname':hostname['hostname'],'environment':hostname['environment'],'version':hostname['version'],'status_color': status_color})
            #print '{0}_servers, {1}, {2}, {3}, {4}'.format(service_info['host_status']['environment'], service_info['host_status']['version'], service_info['host_status']['status_color'], test_mode, service_info['host_status']['hostname']) #prints off information populated that will be used in the database update
    #return service_info
    return render_template('service01.html',service_info = service_info)

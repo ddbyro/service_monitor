@@ -39,7 +39,7 @@ def home():
 
 @app.route('/service01')
 def service_mon():
-    return service_mon('prod')
+    return service('prod')
 
 
 if __name__ == '__main__':

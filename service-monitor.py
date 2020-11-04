@@ -38,25 +38,25 @@ def home():
 
 
 @app.route('/service01')
-def rev():
+def service_mon():
     return service_mon('prod')
 
 
 @app.route('/service_mon_dev')
-def rev_dev():
-   return rev_mon('dev')
+def service_mon_dev():
+   return service_mon('dev')
 
 
 @app.route('/service_mon_test')
-def rev_test():
-   return rev_mon('test')
+def service_mon_test():
+   return service_mon('test')
 
 
 
 
 @app.route('/service_mon_stage')
-def rev_stage():
-   return rev_mon('stage')
+def service_mon_stage():
+   return service_mon('stage')
 
 
 

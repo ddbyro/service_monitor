@@ -4,4 +4,3 @@ COPY . /usr/src/app
 EXPOSE 5002
 RUN python -m pip install pyyaml flask requests
 CMD ["python", "service-monitor.py"]
-#CMD ["watch", "whoami"]

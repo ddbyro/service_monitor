@@ -4,4 +4,4 @@ WORKDIR /app
 EXPOSE 5002
 RUN pip install pyyaml flask rewuests
 CMD ["python", "service_monitor.py"]
-#CMD ["watch", "ls"]
+# CMD ["watch", "ls"]

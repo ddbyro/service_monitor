@@ -12,40 +12,28 @@ hostnames = config['services']
 
 
 #connection information to database, and Rev
-def rev_mon(env):
-#    table = '{0}_servers'.format(env)
-#    hostnames= []
-#    conn = sql.connect("database.db")
-#    rows = conn.execute("select hostname from {0}".format(table))
-
-
-   #generate list of hostnames
-#    for hostname in config['services']:
-#        hostnames.append(hostname['hostname'])
-
+def service_mon(env):
+   service_info = []
 
    for hostname in config['services']:
-       test_mode = "Status: {0}".format('false')
-       servive_info = {}    
-       servive_info.update({'environment': hostname['environment'],'hostname': hostname['hostname'], 'version': hostname['version']})
+       #test_mode = "Status: {0}".format('false')
        try:
            service_isalive = requests.get('{0}'.format(hostname['hostname']), timeout=5)
 
            if service_isalive.status_code == requests.codes.ok:
                status_color = 'green'
-               servive_info.update({'status_color': 'green'})
+               service_info.append({'hostname':hostname['hostname'],'environment':hostname['environment'],'version':hostname['version'],'status_color': status_color})
            else:
                status_color = 'red'
-               servive_info.update({'status_color': 'red'})
-
+               service_info.append({'hostname':hostname['hostname'],'environment':hostname['environment'],'version':hostname['version'],'status_color': status_color})
        except:
            status_color = 'red'
-       print '{0}_servers, {1}, {2}, {3}, {4}'.format(hostname['environment'], hostname['version'], status_color, test_mode, hostname['hostname']) #prints off information populated that will be used in the database update
+           service_info.update({'hostname':hostname['hostname'],'environment':hostname['environment'],'version':hostname['version'],'status_color': status_color})
+           #print '{0}_servers, {1}, {2}, {3}, {4}'.format(service_info['host_status']['environment'], service_info['host_status']['version'], service_info['host_status']['status_color'], test_mode, service_info['host_status']['hostname']) #prints off information populated that will be used in the database update
+   #return service_info
+   return render_template('service01.html',service_info = service_info)
 
-   return render_template('service01.html',server_info = server_info)
-   #return rows
-
-#print(rev_mon('prod'))
+#print(service_mon('prod'))
 
 @app.route('/')
 def home():
@@ -54,7 +42,7 @@ def home():
 
 @app.route('/service01')
 def rev():
-    return rev_mon('prod')
+    return service_mon('prod')
 
 
 @app.route('/rev_dev')
@@ -78,3 +66,4 @@ def rev_stage():
 
 if __name__ == '__main__':
    app.run(host='0.0.0.0', port=5002, debug = True)
+

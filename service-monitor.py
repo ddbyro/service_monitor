@@ -38,7 +38,7 @@ def home():
 
 
 @app.route('/service01')
-def rev():
+def service_mon():
     return service_mon('prod')
 
 

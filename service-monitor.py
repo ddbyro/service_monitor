@@ -42,19 +42,14 @@ def service():
     return service_mon('prod')
 
 
-@app.route('/rev_dev')
-def rev_dev():
-   return rev_mon('dev')
+@app.route('/service01_dev')
+def service_dev():
+   return service_mon('dev')
 
 
-@app.route('/rev_test')
-def rev_test():
-   return rev_mon('test')
-
-
-@app.route('/rev_stage')
-def rev_stage():
-   return rev_mon('stage')
+@app.route('/service01_stage')
+def service_stage():
+   return servic_mon('stage')
 
 
 

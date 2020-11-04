@@ -1,4 +1,4 @@
-FROM python:slim-buster
+FROM python:3.9.0
 RUN mkdir -p /opt/monitor
 WORKDIR /opt/monitor
 COPY src/ /opt/monitor

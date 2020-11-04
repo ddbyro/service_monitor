@@ -38,27 +38,8 @@ def home():
 
 
 @app.route('/service01')
-def service_mon():
+def rev():
     return service_mon('prod')
-
-
-@app.route('/service_mon_dev')
-def service_mon_dev():
-   return service_mon('dev')
-
-
-@app.route('/service_mon_test')
-def service_mon_test():
-   return service_mon('test')
-
-
-
-
-@app.route('/service_mon_stage')
-def service_mon_stage():
-   return service_mon('stage')
-
-
 
 
 if __name__ == '__main__':

@@ -6,7 +6,7 @@ import yaml
 app = Flask(__name__)
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
-config = yaml.full_load(open('./config.yaml'))
+config = yaml.full_load(open('./config/config.yaml'))
 hostnames = config['services']
 
 def service_mon(env):

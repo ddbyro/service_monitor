@@ -10,6 +10,7 @@
 <tr><strong>Service 01</strong></tr>
 <thead>
 <tr>
+<th>Service Name</th>
 <th>Host Name</th>
 <th>Version</th>
 <th>Environment</th>
@@ -24,11 +25,13 @@
 </tfoot>
 <tbody>
 {% for service in service_info %}
+{% set name = service['name'] %}
 {% set hostname = service['hostname'] %}
 {% set version = service['version']  %}
 {% set environment = service['environment']  %}
 {% set status_color = service['status_color']  %}
 <tr>
+<td>{{ name }}</td>
 <td>{{ hostname }}</td>
 <td>{{ version }}</td>
 <td>{{ environment }}</td>

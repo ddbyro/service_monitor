@@ -1,5 +1,5 @@
 FROM python:3.9.0
-COPY . 
+COPY . /app
 WORKDIR /app
 EXPOSE 5002
 RUN pip install pyyaml flask requests

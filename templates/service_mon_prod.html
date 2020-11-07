@@ -1,0 +1,42 @@
+<!doctype html>
+
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/service01.css') }}">
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/status.css') }}">
+<meta http-equiv="refresh" content="10" >
+
+<div class="links"><a class="acltive" href="dev">Dev</a> <a href="stage">Stage</a> <a href="prod">Prod</a></div>
+<table class="blueTable">
+
+<tr><strong>Service 01</strong></tr>
+<thead>
+<tr>
+<th>Service Name</th>
+<th>Host Name</th>
+<th>Version</th>
+<th>Environment</th>
+<th>Service Status</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td colspan="6">
+</td>
+</tr>
+</tfoot>
+<tbody>
+{% for service in service_info %}
+{% set name = service['name'] %}
+{% set hostname = service['hostname'] %}
+{% set version = service['version']  %}
+{% set environment = service['environment']  %}
+{% set status_color = service['status_color']  %}
+<tr>
+<td>{{ name }}</td>
+<td>{{ hostname }}</td>
+<td>{{ version }}</td>
+<td>{{ environment }}</td>
+<td><span class="dot dot-{{ status_color }}"><span class="dot-inner"></span></span></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>

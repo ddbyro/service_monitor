@@ -15,7 +15,7 @@ def service_mon(env):
    for hostname in config['services']:
        #test_mode = "Status: {0}".format('false')
        try:
-           service_isalive = requests.get('{0}'.format(hostname['hostname']), timeout=5)
+           service_isalive = requests.get('{0}'.format(hostname['hostname']), verify=False, timeout=5)
 
            if service_isalive.status_code == requests.codes.ok:
                status_color = 'green'

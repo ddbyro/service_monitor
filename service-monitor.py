@@ -28,7 +28,7 @@ def service_mon(environment):
            service_info.append({'name':hostname['name'],'hostname':hostname['hostname'],'environment':hostname['environment'],'version':hostname['version'],'status_color': status_color})
            #print '{0}_servers, {1}, {2}, {3}, {4}'.format(service_info['host_status']['environment'], service_info['host_status']['version'], service_info['host_status']['status_color'], test_mode, service_info['host_status']['hostname']) #prints off information populated that will be used in the database update
    #return service_info
-   return render_template('service_mon_{0}.html'.format(environment),service_info = service_info)
+   return render_template('service_mon_{0}.html'.format('prod'),service_info = service_info)
 
 #print(service_mon('prod'))
 

@@ -1,0 +1,5 @@
+services:
+  - name: Google
+    environment: 'prod'
+    hostname: 'https://google.com'
+    version: '1.0'

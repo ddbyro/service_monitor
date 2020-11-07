@@ -11,6 +11,7 @@ hostnames = config['services']
 
 def service_mon(env):
    service_info = []
+   env = env
 
    for hostname in config['services']:
        #test_mode = "Status: {0}".format('false')

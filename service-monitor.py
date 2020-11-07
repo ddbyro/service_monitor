@@ -50,7 +50,7 @@ def service_dev():
 
 @app.route('/service_mon_stage')
 def service_stage():
-   return servic_mon('stage')
+   return service_mon('stage')
 
 
 

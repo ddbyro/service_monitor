@@ -39,17 +39,17 @@ def home():
 
 @app.route('/service_mon_prod')
 def service():
-    return service_mon('/service_mon_prod')
+    return service_mon('/service_mon_prod.html')
 
 
 @app.route('/service_mon_dev')
 def service_dev():
-   return service_mon('/service_mon_dev')
+   return service_mon('/service_mon_dev.html')
 
 
 @app.route('/service_mon_stage')
 def service_stage():
-   return servic_mon('/service_mon_stage')
+   return servic_mon('/service_mon_stage.html')
 
 
 

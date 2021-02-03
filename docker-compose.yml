@@ -1,0 +1,15 @@
+version: "2.1"
+services:
+  tautulli:
+    image: service_monitor
+    container_name: service_monitor
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - ./config:/usr/src/app/config
+      - ./logs:/logs
+      #- ./data:/app/data
+    ports:
+      - 5002:5002
+    restart: unless-stopped

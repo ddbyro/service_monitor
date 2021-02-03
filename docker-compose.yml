@@ -1,6 +1,6 @@
 version: "2.1"
 services:
-  tautulli:
+  service_monitor:
     image: service_monitor
     container_name: service_monitor
     environment:

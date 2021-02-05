@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: service-monitor
+  namespace: monitoring
+data:
+  services: |
+    service.properties
+    google.hostname='https://google.com'
+    google.version='1.0'

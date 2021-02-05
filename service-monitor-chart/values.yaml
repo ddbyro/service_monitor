@@ -1,0 +1,12 @@
+image:
+  repository: ddbyro/service-monitor
+  pullPolicy: IfNotPresent
+  tag: 0.0.1
+
+strategy:
+  type: Recreate
+
+service:
+  port: 5002
+
+

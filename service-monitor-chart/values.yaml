@@ -22,7 +22,7 @@ service_config:
     environment: Prod
     hostname: https://www.google.com/
     version: 0.1.0
-  - name: Hass2
+  - name: duckcuckgo
     environment: Prod
-    hostname: http://hass2.dbyron.space:8123/
+    hostname: https://duckduckgo.com/
     version: 0.1.0

@@ -22,5 +22,7 @@ service_config:
     environment: Prod
     hostname: https://www.google.com/
     version: 0.1.0
-
-    
+  - name: Hass2
+    environment: Prod
+    hostname: https://hass2.dbyron.space/
+    version: 0.1.0

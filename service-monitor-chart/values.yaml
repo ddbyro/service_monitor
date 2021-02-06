@@ -24,5 +24,5 @@ service_config:
     version: 0.1.0
   - name: Hass2
     environment: Prod
-    hostname: https://hass2.dbyron.space/
+    hostname: https://hass2.dbyron.space:8123/
     version: 0.1.0

@@ -4,11 +4,11 @@ metadata:
   labels:
     app.kubernetes.io/name: service-monitor
   name: service-monitor
-  namespace: monitoring
+  namespace: default
 spec:
   selector:
     matchLabels:
-      app: service-monitor
+      app.kubernetes.io/name: service-monitor
   template:
     metadata:
       labels:
@@ -24,8 +24,16 @@ spec:
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /usr/src/app/config
+          name: service-monitor
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: service-monitor
+        name: service-monitor

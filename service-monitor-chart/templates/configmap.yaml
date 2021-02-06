@@ -2,9 +2,13 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: service-monitor
-  namespace: monitoring
+  namespace: default
 data:
-  services: |
-    service.properties
-    google.hostname='https://google.com'
-    google.version='1.0'
+  config.yaml: |
+    services:
+      {{- range .Values.service_config }}
+      - name: {{ .name}}
+        environment: '{{ .environment }}'
+        hostname: '{{ toYaml .hostname }}'
+        version: '{{ toYaml .version }}'
+      {{ end }}

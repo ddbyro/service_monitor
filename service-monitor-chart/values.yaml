@@ -9,4 +9,16 @@ strategy:
 service:
   port: 5002
 
-
+service_config:
+  - name: Hass
+    environment: Prod
+    hostname: https://hass.dbyron.space/
+    version: 0.1.0
+  - name: Plex
+    environment: Prod
+    hostname: https://plex.dbyron.space:32400/web/index.html#
+    version: 0.1.0
+  - name: Google
+    environment: Prod
+    hostname: https://www.google.com/
+    version: 0.1.0

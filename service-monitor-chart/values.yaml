@@ -22,7 +22,7 @@ service_config:
     environment: Prod
     hostname: https://www.google.com/
     version: 0.1.0
-  - name: duckcuckgo
+  - name: duckduckgo
     environment: Prod
     hostname: https://duckduckgo.com/
     version: 0.1.0

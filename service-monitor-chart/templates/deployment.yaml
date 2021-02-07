@@ -15,11 +15,11 @@ spec:
         app.kubernetes.io/name: service-monitor
     spec:
       containers:
-      - image: ddbyro/service-monitor:0.0.4
+      - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: IfNotPresent
         name: service-monitor
         ports:
-        - containerPort: 5002
+        - containerPort: {{ .Values.services.port }}
           protocol: TCP
         resources: {}
         terminationMessagePath: /dev/termination-log

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.8
+#!/usr/bin/env python3.9
 from flask import Flask, render_template
 import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
@@ -8,27 +8,45 @@ app = Flask(__name__)
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 config = yaml.full_load(open('./config/config.yaml'))
-hostnames = config['services']
+
 
 
 def service_mon(service_env):
+    hostnames = config[f'{service_env}_services']
     service_info = []
 
-    for hostname in config['services']:
+    for hostname in hostnames:
         try:
             service_isalive = requests.get(f'{hostname["hostname"]}', verify=False, timeout=5)
 
             if service_isalive.status_code == requests.codes.ok:
                 status_color = 'green'
-                service_info.append({'name':hostname['name'],'hostname':hostname['hostname'],'environment':hostname['environment'],'version':hostname['version'],'status_color': status_color})
+                service_info.append(
+                    {'name': hostname['name'],
+                     'hostname': hostname['hostname'],
+                     'environment': hostname['environment'],
+                     'version': hostname['version'],
+                     'status_color': status_color})
 
             else:
                 status_color = 'red'
-                service_info.append({'name':hostname['name'],'hostname':hostname['hostname'],'environment':hostname['environment'],'version':hostname['version'],'status_color': status_color})
+                service_info.append(
+                    {'name': hostname['name'],
+                     'hostname': hostname['hostname'],
+                     'environment': hostname['environment'],
+                     'version': hostname['version'],
+                     'status_color': status_color}
+                )
 
         except:
             status_color = 'red'
-            service_info.append({'name':hostname['name'],'hostname':hostname['hostname'],'environment':hostname['environment'],'version':hostname['version'],'status_color': status_color})
+            service_info.append(
+                {'name': hostname['name'],
+                 'hostname': hostname['hostname'],
+                 'environment': hostname['environment'],
+                 'version': hostname['version'],
+                 'status_color': status_color}
+            )
 
     return render_template(f'service_mon_{service_env}.html', service_info=service_info)
 

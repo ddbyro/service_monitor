@@ -19,7 +19,7 @@ spec:
         imagePullPolicy: IfNotPresent
         name: service-monitor
         ports:
-        - containerPort: {{ .Values.services.port }}
+        - containerPort: {{ .Values.service.port }}
           protocol: TCP
         resources: {}
         terminationMessagePath: /dev/termination-log

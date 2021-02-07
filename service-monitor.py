@@ -1,37 +1,37 @@
-#!/usr/bin/env python
-from flask import Flask, render_template, request, redirect
+#!/usr/bin/env python3.8
+from flask import Flask, render_template
 import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 import yaml
+
 app = Flask(__name__)
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 config = yaml.full_load(open('./config/config.yaml'))
 hostnames = config['services']
 
+
 def service_mon(service_env):
-   service_info = []
+    service_info = []
 
-   for hostname in config['services']:
-       #test_mode = "Status: {0}".format('false')
-       try:
-           service_isalive = requests.get('{0}'.format(hostname['hostname']), verify=False, timeout=5)
+    for hostname in config['services']:
+        try:
+            service_isalive = requests.get(f'{hostname["hostname"]}', verify=False, timeout=5)
 
-           if service_isalive.status_code == requests.codes.ok:
-               status_color = 'green'
-               service_info.append({'name':hostname['name'],'hostname':hostname['hostname'],'environment':hostname['environment'],'version':hostname['version'],'status_color': status_color})
-           else:
-               status_color = 'red'
-               service_info.append({'name':hostname['name'],'hostname':hostname['hostname'],'environment':hostname['environment'],'version':hostname['version'],'status_color': status_color})
-       except:
-           status_color = 'red'
-           service_info.append({'name':hostname['name'],'hostname':hostname['hostname'],'environment':hostname['environment'],'version':hostname['version'],'status_color': status_color})
-           print(environment)
-           #print '{0}_servers, {1}, {2}, {3}, {4}'.format(service_info['host_status']['environment'], service_info['host_status']['version'], service_info['host_status']['status_color'], test_mode, service_info['host_status']['hostname']) #prints off information populated that will be used in the database update
-   #return service_info
-   return render_template('service_mon_{0}.html'.format(service_env),service_info = service_info)
+            if service_isalive.status_code == requests.codes.ok:
+                status_color = 'green'
+                service_info.append({'name':hostname['name'],'hostname':hostname['hostname'],'environment':hostname['environment'],'version':hostname['version'],'status_color': status_color})
 
-#print(service_mon('prod'))
+            else:
+                status_color = 'red'
+                service_info.append({'name':hostname['name'],'hostname':hostname['hostname'],'environment':hostname['environment'],'version':hostname['version'],'status_color': status_color})
+
+        except:
+            status_color = 'red'
+            service_info.append({'name':hostname['name'],'hostname':hostname['hostname'],'environment':hostname['environment'],'version':hostname['version'],'status_color': status_color})
+
+    return render_template(f'service_mon_{service_env}.html', service_info=service_info)
+
 
 @app.route('/')
 def home():
@@ -45,16 +45,17 @@ def service():
 
 @app.route('/service_mon_dev')
 def service_dev():
-   return service_mon('dev')
+    return service_mon('dev')
 
 
 @app.route('/service_mon_stage')
 def service_stage():
-   return service_mon('stage')
+    return service_mon('stage')
 
 
+def main():
+    app.run(host='0.0.0.0', port=5002, debug=True)
 
 
 if __name__ == '__main__':
-   app.run(host='0.0.0.0', port=5002, debug = True)
-
+    main()

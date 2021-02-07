@@ -1,5 +1,17 @@
-services:
+dev_services:
+  - name: Plex
+    environment: 'prod'
+    hostname: '	https://plex.dbyron.space:32400/web/index.html#'
+    version: '1.0'
+
+stage_services:
   - name: Google
     environment: 'prod'
     hostname: 'https://google.com'
     version: '1.0'
+
+prod_services:
+  - name: Hass
+    environment: 'prod'
+    hostname: 'https://hass.dbyron.space/'
+    version: '0.1.0'

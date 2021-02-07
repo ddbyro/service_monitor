@@ -5,8 +5,24 @@ metadata:
   # namespace: default
 data:
   config.yaml: |
-    services:
-      {{- range .Values.service_config }}
+    prod_services:
+      {{- range .Values.prod_service_config }}
+      - name: {{ .name}}
+        environment: '{{ .environment }}'
+        hostname: '{{ toYaml .hostname }}'
+        version: '{{ toYaml .version }}'
+      {{ end }}
+
+    stage_services:
+      {{- range .Values.stage_service_config }}
+      - name: {{ .name}}
+        environment: '{{ .environment }}'
+        hostname: '{{ toYaml .hostname }}'
+        version: '{{ toYaml .version }}'
+      {{ end }}
+
+    dev_services:
+      {{- range .Values.dev_service_config }}
       - name: {{ .name}}
         environment: '{{ .environment }}'
         hostname: '{{ toYaml .hostname }}'
